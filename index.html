@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>gem</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style/l_algebra.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@1,700&display=swap" rel="stylesheet">
+    <script src="js/script.js"></script>
+</head>
+
+<body>
+    <header></header>
+
+    <main>
+
+        <section class="geometry">
+            <h2>Начала Евклида</h2>
+
+            <article>
+                <h3>Предложение 1</h3>
+                <p class="theorem"><i>На данной прямой построить равносторонний треугольник.</i></p>
+
+
+                <p>Пусть данная прямая будет <span onmouseover="start_anime('animate-p1-AB-1')"
+                        onmouseout="start_anime('animate-p1-AB-2')" class="descr">AB</span>.
+                </p>
+                <p>Требуется на <span onmouseover="p1_AB_1()" onmouseout="p1_AB_2()" class="descr">прямой AB</span>
+                    построить равносторонний треугольник.
+                </p>
+
+                <table>
+                    <tr>
+                        <td style="width:18px">
+                            <figure>
+                                <img src="image/circul.png" alt="Circul" style="width:100%">
+                            </figure>
+                        </td>
+                        <td>
+                            Из <span class="descr">точки A</span> раствором <span class="descr">AB</span> опишем круг
+                            <span class="descr">BCD</span> (постулат&nbsp;3)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <figure>
+                                <img src="image/circul.png" alt="Circul" style="width:100%">
+                            </figure>
+                        </td>
+                        <td>
+                            Из <span class="descr">точки B</span> раствором <span class="descr">BA</span> опишем круг
+                            <span class="descr">ACE</span> (постулат&nbsp;3);
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <figure>
+                                <img src="image/lineyka.png" alt="Circul" style="width:100%">
+                            </figure>
+                        </td>
+                        <td>
+                            Из <span class="descr">точки C</span>, в которой круги пересекают друг друга, проведем к
+                            точкам <span class="descr">A</span>&nbsp;и&nbsp;<span class="descr">B</span> соединяющие
+                            прямые <span onmouseover="p1_CA_CB_1()" onmouseout="p1_CA_CB_2()"
+                                class="descr">CA&nbsp;и&nbsp;CB</span>
+                            (постулат 1).
+                        </td>
+                    </tr>
+                </table>
+
+                <figure>
+                    <svg width="350" height="250" viewBox="10 10 360 260" xmlns="http://www.w3.org/2000/svg" role="img">
+                        <line x1="150" y1="150" x2="250" y2="150" style="stroke:rgb(0,0,0);stroke-width:2">
+                            <animate id="animate-p1-AB-1" attributeName="stroke-width" values="2;5" repeatCount="1"
+                                begin="indefinite" dur="0.5s" fill="freeze" />
+                            <animate id="animate-p1-AB-1-1" attributeName="stroke" values="#8c66ff" repeatCount="1"
+                                begin="indefinite" dur="0.5s" fill="freeze" />
+
+                            <animate id="animate-p1-AB-2" attributeName="stroke-width" values="5;2" repeatCount="1"
+                                begin="indefinite" dur="0.5s" fill="freeze" />
+                            <animate id="animate-p1-AB-2-2" attributeName="stroke" values="rgb(0,0,0)" repeatCount="1"
+                                begin="indefinite" dur="0.5s" fill="freeze" />
+
+                        </line>
+                        <circle cx="150" cy="150" r="100" stroke="#909090" stroke-width="1" fill-opacity="0" />
+                        <circle cx="250" cy="150" r="100" stroke="#909090" stroke-width="1" fill-opacity="0" />
+                        <line x1="150" y1="150" x2="200" y2="65" style="stroke:rgb(0,0,0);stroke-width:2">
+                            <animate id="animate-CA-1" attributeName="stroke-width" values="2;5" repeatCount="1"
+                                begin="indefinite" dur="0.5s" fill="freeze" />
+                            <animate id="animate-CA-2" attributeName="stroke-width" values="5;2" repeatCount="1"
+                                begin="indefinite" dur=".5s" fill="freeze" />
+                        </line>
+                        <line x1="250" y1="150" x2="200" y2="65" style="stroke:rgb(0,0,0);stroke-width:2">
+                            <animate id="animate-CB-1" attributeName="stroke-width" values="2;5" repeatCount="1"
+                                begin="indefinite" dur=".5s" fill="freeze" />
+                            <animate id="animate-CB-2" attributeName="stroke-width" values="5;2" repeatCount="1"
+                                begin="indefinite" dur=".5s" fill="freeze" />
+                        </line>
+                        <text x="135" y="155">A</text>
+                        <text x="260" y="155">B</text>
+                        <text x="200" y="55">C</text>
+                        <text x="35" y="155">D</text>
+                        <text x="355" y="155">E</text>
+                    </svg>
+                </figure>
+
+                <p>Поскольку <span class="descr">точка A</span> есть центр круга <span class="descr">CDB</span>, то
+                    <span class="descr">AC&nbsp;=&nbsp;AB</span> (определение&nbsp;15);
+                </p>
+                <p>поскольку <span class="descr">точка B</span> есть центр круга <span class="descr">CAE</span>, то
+                    <span class="descr">BC&nbsp;=&nbsp;BA</span> (определение 15).
+                </p>
+                <p>Но уже было показано, что <span class="descr">AC&nbsp;=&nbsp;AB</span>; значит каждая
+                    из <span class="descr">AC&nbsp;=&nbsp;AB</span>, <span class="descr">BC&nbsp;=&nbsp;BA</span>.<br>
+                    Но равные одному и тому же равны и между собой (аксиома 1); значит и <span
+                        class="descr">CA&nbsp;=&nbsp;CB</span>.</p>
+                <p>Значит, три прямые <span class="descr">AB</span>, <span class="descr">BC</span> и <span
+                        class="descr">CA</span> равны между собой.</p>
+                <p>Значит, треугольник <span class="descr">ABC</span> равносторонний (определение 20) и построен на
+                    данной
+                    ограниченной прямой <span class="descr">AB</span>, что
+                    и требовалось сделать.</p>
+            </article>
+
+            <hr>
+
+            <article>
+                <h3>Предложение 2</h3>
+                <p class="theorem"><i>От данной точки отложить прямую, равную данной прямой.</i></p>
+                <svg width="300" height="300" class="img2" viewBox="-5 -5 295 295">
+                    <circle cx="150" cy="150" r="85" stroke="#000000" stroke-width="1" fill-opacity="0" />
+                    <circle cx="120" cy="130" r="121" stroke="#000000" stroke-width="1" fill-opacity="0" />
+                    <circle cx="150" cy="150" r="2" stroke="#000000" stroke-width="1" />
+                    <circle cx="120" cy="130" r="2" stroke="#000000" stroke-width="1" />
+                    <circle cx="120" cy="170" r="2" stroke="#000000" stroke-width="1" />
+                    <line x1="120" y1="130" x2="250" y2="217" stroke-width="2" stroke="#000000" />
+                    <line x1="150" y1="150" x2="198" y2="81" stroke-width="2" stroke="#000000" />
+                    <line x1="120" y1="170" x2="150" y2="150" stroke-width="2" stroke="#000000" />
+                    <line x1="120" y1="130" x2="120" y2="290" stroke-width="2" stroke="#000000" />
+                    <text x="100" y="175">A</text>
+                    <text x="158" y="153">B</text>
+                    <text x="112" y="120">D</text>
+                    <text x="77" y="85">G</text>
+                    <text x="27" y="35">K</text>
+                    <text x="105" y="265">L</text>
+                    <text x="105" y="290">E</text>
+                    <text x="210" y="188">H</text>
+                    <text x="240" y="230">F</text>
+                </svg>
+                <p>Пусть данная точка будет A, заданная же прямая <span class="descr">BC</span>;
+                    требуется вот от точки A отложить прямую, равную данной прямой BC.</p>
+                <p>Проведем от точки A к точке B соединяющую прямую AB и построим на ней равносторонний треугольник DAB
+                    (предложение&nbsp;1);
+                    по прямым DA и DB продолжим прямые AE, BF, из центра B растворм BC опишем круг CGH (постулат&nbsp;3)
+                    и
+                    далее из центра D раствором DH опишем круг HKL (постулат&nbsp;3).
+                </p>
+                <p>Поскольку теперь точка B &ndash; центр круга CHG, то BC равна BH (определение&nbsp;15).
+                    Далее, поскольку точка D &ndash; центр круга HKL, то DL равна DH (определение&nbsp;15), а у них DA
+                    равна
+                    DB.
+                    Значит, остаток AL равен остатку BH (аксиома&nbsp;3).
+                    Но уже доказано, что и BC равно BH; значит, каждая из прямых AL и BC равна BH.
+                    Но равные одному и тому же равны и между собой (аксиома&nbsp;1); значит, и AL равна BC.</p>
+                <p>Значит, от данной точки A отложена прямая AL, равная заданной BC, что и требовалось сделать.</p>
+            </article>
+
+            <hr>
+
+            <article>
+                <h3>Предложение 3</h3>
+                <p class="theorem"><i>Из двух заданных неравных прямых от большей отнять прямую, равную меньшей.</i></p>
+                <svg width="300" height="250" class="img1" viewBox="0 0 300 290">
+                    <line x1="75" y1="30" x2="190" y2="30" stroke-width="2" stroke="#000000" />
+                    <text x="130" y="20">C</text>
+                    <circle cx="120" cy="150" r="100" stroke="black" stroke-width="1" fill-opacity="0" />
+                    <line x1="120" y1="150" x2="280" y2="150" stroke="black" stroke-width="2" />
+                    <line x1="120" y1="150" x2="60" y2="70" stroke="black" stroke-width="2" />
+                    <text x="125" y="143">A</text>
+                    <text x="225" y="143">E</text>
+                    <text x="275" y="143">B</text>
+                    <text x="125" y="265">F</text>
+                    <text x="48" y="70">D</text>
+                </svg>
+                <p>Пусть данные две неравные прямые будут AB и C, из них большая пусть будет AB;
+                    вот требуется от большей AB отнять прямую, равную меньшей C.
+                </p>
+                <p>От точки A отложим AD, равную прямой C (предложение 2);
+                    и из центра A раствором AD опишем круг DEF (постулат 3).
+                </p>
+                <p>И поскольку точка A &ndash; центр круга DEF, то AE равна AD, но и C равна AD;
+                    значит, каждая из AE и C равна AD; так что AE равна C (аксиома 1).
+                </p>
+                <p>Значит, из двух заданных неравных прямых AB и C от большей AB отнята AE, равная меньшей C; это и
+                    требовалось сделать.</p>
+            </article>
+
+            <hr>
+
+            <article>
+                <h3>Предложение 4</h3>
+                <p class="theorem"><i>Если два треугольника имеют по две стороны, равные каждая каждой, и по равному
+                        углу, содержащемуся
+                        между равными прямыми, то они будут иметь и основание, равное основанию, и один треугольник
+                        будет
+                        равен другому, и остальные углы, стягиваемые равными сторонами, будут равны остальным углам
+                        каждый
+                        каждому.</i></p>
+
+                <svg height="160" width="480" class="img2">
+                    <defs>
+                        <marker id="mid1" viewBox="0 0 15 15" markerWidth="15" markerHeight="15" orient="0" refX="0"
+                            refY="0" markerUnits="strokeWidth">
+                            <line x1="7" y1="0" x2="7" y2="15" stroke="black" stroke-width="1" />
+                        </marker>
+                    </defs>
+
+                    <line x1="30" y1="120" x2="200" y2="120" stroke="black" stroke-width="2" />
+                    <line x1="150" y1="40" x2="30" y2="120" stroke="black" stroke-width="2"
+                        style="marker-mid: url(#mid1);" />
+                    <line x1="150" y1="40" x2="200" y2="120" stroke="black" stroke-width="2" />
+                    <text x="160" y="50">A</text>
+                    <text x="15" y="127">B</text>
+                    <text x="202" y="123">C</text>
+
+                    <line x1="250" y1="120" x2="420" y2="120" stroke="black" stroke-width="2" />
+                    <line x1="370" y1="40" x2="250" y2="120" stroke="black" stroke-width="2" />
+                    <line x1="370" y1="40" x2="420" y2="120" stroke="black" stroke-width="2" />
+                    <text x="380" y="50">D</text>
+                    <text x="235" y="123">E</text>
+                    <text x="425" y="123">F</text>
+
+                </svg>
+
+                <p>Пусть <span class="descr">ABC</span> и <span class="descr">DEF</span> будут два треугольника, имеющих
+                    две
+                    стороны <span class="descr">AB</span> и <span class="descr">AC</span> равные двум сторонам <span
+                        class="descr">DE</span> и <span class="descr">DF</span> каждая каждой, а именно, <span
+                        class="descr">AB</span> равной <span class="descr">DE</span>, а <span class="descr">AC</span>
+                    равной
+                    <span class="descr">DF</span> и угол <span class="descr">BAC</span> равным <span
+                        class="descr">EDF</span>. Я утверждаю, что и основание <span class="descr">BC</span>
+                    будет равно основанию <span class="descr">EF</span>, и треугольник <span class="descr">ABC</span>
+                    будет
+                    равен треугольнику <span class="descr">DEF</span>, и остальные углы, стягиваемые равными сторонами,
+                    будут равны остальным углам каждый каждому, а именно, угол <span class="descr">ABC</span> углу <span
+                        class="descr">DEF</span> и угол <span class="descr">ACB</span> углу <span
+                        class="descr">DFE</span>.
+                    Действительно, если треугольник <span class="descr">ABC</span> совмещается с треугольником <span
+                        class="descr">DEF</span> и кладутся точка <span class="descr">A</span> на точку <span
+                        class="descr">D</span>, а прямая <span class="descr">AB</span> на <span class="descr">DE</span>,
+                    то и точка <span class="descr">B</span> совместится с <span class="descr">E</span>, вследствии того,
+                    что
+                    <span class="descr">AB</span> равна <span class="descr">DE</span>; а так как <span
+                        class="descr">AB</span> совместилась с <span class="descr">DE</span>, то и прямая <span
+                        class="descr">AC</span> совместиться с <span class="descr">DF</span> вследствии того, что угол
+                    <span class="descr">BAC</span> равен <span class="descr">EDF</span>; так что и точка <span
+                        class="descr">C</span> совместится с точкой <span class="descr">F</span> вследствии того, что
+                    <span class="descr">AC</span> тоже равно <span class="descr">DF</span>.
+                </p>
+                <p>Но <span class="descr">B</span> уже совместилос с <span class="descr">E</span>; так что и основание
+                    <span class="descr">BC</span> совместится с основание <span class="descr">EF</span>. Действительно,
+                    если
+                    при совмещении точки <span class="descr">B</span> с <span class="descr">E</span>, а <span
+                        class="descr">C</span> с <span class="descr">F</span> основание <span class="descr">BC</span> не
+                    совместилось бы с <span class="descr">EF</span>, то две прямые будут содержать
+                    пространство (аксиома 4), что невозможно.
+                </p>
+                <p>Значи, основание <span class="descr">BC</span> совместится с <span class="descr">EF</span> и будет
+                    ему
+                    равно; так что и весь треугольник <span class="descr">ABC</span> совместится со
+                    всем треугольником <span class="descr">DEF</span> и будет ему равен, и остальные углы совместятся с
+                    остальными и будут им равны, а именно, угол <span class="descr">ABC</span> углу <span
+                        class="descr">DEF</span> и угол <span class="descr">ACB</span> углу <span
+                        class="descr">DFE</span>.
+                </p>
+                <p>Значит, если два треугольника имеют по две стороны равными каждая каждой и по равному углу,
+                    содержащемуся
+                    между равными прямыми, то они будут иметь и основание, равное основанию, и один треугольник будет
+                    равен
+                    другому, и остальные углы, стягиваемые равными сторонами, удут равны остальным углам каждый каждому,
+                    что
+                    и требовалось доказать.</p>
+            </article>
+
+            <hr>
+
+            <article>
+                <h3>Предложение 5</h3>
+                <p class="theorem"><i>У равнобедреннных треугольников углы при основании равны между собой, и по
+                        продолжении равных прямых углы под основанием будут равны между собой.</i>
+                </p>
+                <p>Пусть <span class="descr">ABC</span> будет равнобедренный треугольник, имеющий сторону <span
+                        class="descr">AB</span> равную стороне <span class="descr">AC</span>, и пусть по прямым <span
+                        class="descr">AB</span>, <span class="descr">AC</span> будут продолжены прямые <span
+                        class="descr">BD</span>, <span class="descr">CE</span> (постулат 2).</p>
+                <p>Я утверждаю, что угол <span class="descr">ABC</span> равен углу <span class="descr">ACB</span>, а
+                    угол
+                    <span class="descr">CBD</span> углу <span class="descr">BCE</span>.
+                </p>
+                <p>Действительно, на <span class="descr">BD</span> возьмём произвольную точку <span
+                        class="descr">F</span>,
+                    от большей <span class="descr">AE</span> отнимем <span class="descr"></span>AH, равную меньшей <span
+                        class="descr">AF</span>
+                    (предложение 3) и соединим прямыми <span class="descr">FC</span> и <span class="descr">HB</span>.
+                </p>
+
+                <p>Поскольку теперь AF равна AH, а AB равна AC, то вот две прямые FA, AC равны двум HA, AB каждая
+                    каждой; и они содержат общий угол FAH; значит, основание FC равно основанию HB и треугольник AFC
+                    будет равен треугольнику AHB и остальные углы, стягиваемые равными сторонами, будут равны остальным
+                    углам каждый каждому, а именно, угол ACF углу ABH, а угол AFC углу AHB (предложение 4).</p>
+                <p>И поскольку вся AF равна всей AH, и у них AB равна AC, то, значит, и остаток BF равен остатку CH
+                    (аксиома 3). Но доказано, что и FC равна HB; вот две прямые BF, FC равны двум прямым CH и HB каждая
+                    каждой; и угол BFC равен углу CHB, и основание у них общее BC. Значит, и треугольник BFC равен
+                    треугольнику CHB, и остальные углы, стягиваемые равными сторонами, равны каждый каждому
+                    (предложение&nbsp;4); значит, угол FBC равен углу HCB, а угол BCF углу CBH. Поскольку теперь
+                    доказано, что весь угол ABH равен всему углу ACF, и у них CBH равен BCF, то следовательно, и остаток
+                    ABC равен остатку ACB (аксиома 3) и они находятся при основании треугольника ABC. Доказано же, что и
+                    угол FBC равен HCB и оба они под основанием.
+                </p>
+                <p>Значит, у равнобедреннных треугольников углы при основании равны между собой и по продолжении равных
+                    прямых углы под основанием будут равны между собой. Это и требовалось доказать.
+                </p>
+                <figure>
+                    <svg width="300" height="400" role="img">
+                        <line x1="150" y1="30" x2="20" y2="400" stroke="black" />
+                        <line x1="150" y1="30" x2="280" y2="400" stroke="black" />
+                    </svg>
+                </figure>
+            </article>
+
+        </section>
+
+        <section class="linear-algebra">
+            <h2>Линейная алгера</h2>
+            <article>
+                <h3>Линейные уравнения</h3>
+                <p>Уравнение линии в двух измерениях</p>
+                <p class="equation">ax + by = c</p>
+                <p>Уравнение линии в трех измерениях</p>
+                <p class="equation">ax + by + cz = d</p>
+                <p>Обобщенное линейное уравнение в <i>n</i>-измерениях</p>
+                <p class="equation">a<span class="sub">1</span>x<span class="sub">1</span> + a<span
+                        class="sub">2</span>x<span class="sub">2</span> + ... + a<span class="sub">n</span>x<span
+                        class="sub">n</span> = b</p>
+
+                <table border="1" class="table-example1">
+                    <thead>
+                        <tr>
+                            <td colspan="2">Пример 1</td>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <th>Линейные уравнения</th>
+                        <th>Не линейные уравнения</th>
+                    </tr>
+                    <tr>
+                        <td class="equation">x + 3y = 7</td>
+                        <td class="equation">x + 3y<span class="sup">2</span> = 4</td>
+                    </tr>
+
+                    <tr>
+                        <td class="equation">
+                            <span class="fraction">
+                                <span class="numerator">1</span>
+                                <span class="denomerator">2</span>
+                            </span>x - y + 3z = -1
+                        </td>
+                        <td class="equation">sin(x) + y = 0</td>
+                    </tr>
+
+                    <tr>
+                        <td class="equation">x<span class="sub">1</span> - 2x<span class="sub">2</span> - 3x<span
+                                class="sub">3</span> + x<span class="sub">4</span> = 0</td>
+                        <td class="equation">3x + 2y - xy = 5</td>
+                    </tr>
+
+                    <tr>
+                        <td class="equation">x<span class="sub">1</span> + x<span class="sub">2</span> + ... + x<span
+                                class="sub">n</span> = 1</td>
+                        <td class="equation">&radic;<span style="border-top: solid 1px black;">x<span
+                                    class="sub">1</span></span> + 2x<span class="sub">2</span> + x
+                            <span class="sub">3</span> = 1
+                        </td>
+                    </tr>
+
+
+
+                </table>
+
+                <h3>Системы линейных уравнений</h3>
+                <p>Система уравнений с двумя неизвестными</p>
+                <p class="equation">a<span class="sub">1</span>x + b<span class="sub">1</span>y = c<span
+                        class="sub">1</span></p>
+                <p class="equation">a<span class="sub">2</span>x + b<span class="sub">2</span>y = c<span
+                        class="sub">2</span></p>
+
+                <p>Система уравнений с тремя неизвестными</p>
+                <p class="equation">a<span class="sub">11</span>x<span class="sub">1</span> + a<span
+                        class="sub">12</span>x<span class="sub">2</span> + a<span class="sub">13</span>x<span
+                        class="sub">3</span> = b<span class="sub">1</span></p>
+
+                <p class="equation">a<span class="sub">21</span>x<span class="sub">1</span> + a<span
+                        class="sub">22</span>x<span class="sub">2</span> + a<span class="sub">23</span>x<span
+                        class="sub">3</span> = b<span class="sub">2</span>
+                </p>
+
+                <p>Обобщенная система линейных <i>m</i>-уравнений с <i>n</i>-неизвесными</p>
+
+                <table id="table-formula-1">
+                    <tbody>
+                        <tr align="center">
+                            <td class="cell">a<span class="sub">11</span>x<span class="sub">1</span></td>
+                            <td class="cell">+</td>
+                            <td class="cell">a<span class="sub">12</span>x<span class="sub">2</span></td>
+                            <td class="cell">+</td>
+                            <td class="cell">&#8230;</td>
+                            <td class="cell">+</td>
+                            <td class="cell">a<span class="sub">1n</span>x<span class="sub">n</span></td>
+                            <td class="cell"> = b<span class="sub">1</span></td>
+                        </tr>
+                        <tr>
+                            <td class="cell">a<span class="sub">21</span>x<span class="sub">1</span></td>
+                            <td class="cell">+</td>
+                            <td class="cell">a<span class="sub">22</span>x<span class="sub">2</span></td>
+                            <td class="cell">+</td>
+                            <td class="cell">&#8230;</td>
+                            <td class="cell">+</td>
+                            <td class="cell">a<span class="sub">2n</span>x<span class="sub">n</span></td>
+                            <td class="cell"> = b<span class="sub">2</span></td>
+                        </tr>
+                        <tr>
+                            <td class="cell">&vellip;</td>
+                            <td class="cell"></td>
+                            <td class="cell">&vellip;</td>
+                            <td class="cell"></td>
+                            <td class="cell"></td>
+                            <td class="cell"></td>
+                            <td class="cell">&vellip;</td>
+                            <td class="cell">&vellip;</td>
+                        </tr>
+                        <tr>
+                            <td class="cell">a<span class="sub">m1</span>x<span class="sub">1</span></td>
+                            <td class="cell">+</td>
+                            <td class="cell">a<span class="sub">m2</span>x<span class="sub">2</span></td>
+                            <td class="cell">+</td>
+                            <td class="cell">&#8230;</td>
+                            <td class="cell">+</td>
+                            <td class="cell">a<span class="sub">mn</span>x<span class="sub">n</span></td>
+                            <td class="cell"> = b<span class="sub">m</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>Линейные системы с 2-мя неизвестными</h4>
+                <p class="equation">a<span class="sub">1</span>x + b<span class="sub">1</span>y = c<span
+                        class="sub">1</span></p>
+                <p class="equation">a<span class="sub">2</span>x + b<span class="sub">2</span>y = c<span
+                        class="sub">2</span></p>
+
+                <div style="display:flex; justify-content: space-around; padding:14px 0">
+                    <figure>
+                        <svg width="100" height="100" viewBox="0 0 200 200" role="img">
+                            <line x1="100" y1="200" x2="100" y2="0" stroke="black" stroke-width="2"/>
+                            <line x1="0" y1="100" x2="200" y2="100" stroke="black" stroke-width="2"/>
+                            
+                            <line x1="0" y1="20" x2="180" y2="200" stroke="blue" stroke-width="3"/>
+                            <line x1="60" y1="20" x2="240" y2="200" stroke="#00ffff" stroke-width="3"/>
+                            
+                        </svg>
+                        <figcaption>Нет решений<br>(параллельные прямые)</figcaption>
+                    </figure>
+                    <figure>
+                        <svg width="100" height="100" viewBox="0 0 200 200" role="img">
+                            <line x1="100" y1="200" x2="100" y2="0" stroke="black" stroke-width="2"/>
+                            <line x1="0" y1="100" x2="200" y2="100" stroke="black" stroke-width="2"/>
+                            
+                            <line x1="0" y1="170" x2="200" y2="5" stroke="blue" stroke-width="3"/>
+                            <line x1="160" y1="200" x2="110" y2="0" stroke="#00ffff" stroke-width="3"/>
+                            
+                        </svg>
+                        <figcaption>Одно решение<br>(точка пересечения)</figcaption>
+                    </figure>
+                    <figure>
+                        <svg width="100" height="100" viewBox="0 0 200 200" role="img">
+                            <line x1="100" y1="200" x2="100" y2="0" stroke="black" stroke-width="2"/>
+                            <line x1="0" y1="100" x2="200" y2="100" stroke="black" stroke-width="2"/>
+                            
+                            <line x1="0" y1="140" x2="200" y2="40" style="stroke-dasharray: 20 10; stroke: blue; stroke-width: 3px;"/>
+                            
+                        </svg>
+                        <figcaption>Бесконечное множество<br>решение<br>(прямые совпадают)</figcaption>
+                    </figure>
+                </div>
+
+                <h4>Линейные системы с 3-мя неизвестными</h4>
+                <p class="equation">a<span class="sub">1</span>x + b<span class="sub">1</span>y + c<span
+                        class="sub">1</span>z = d<span class="sub">1</span></p>
+
+                <p class="equation">a<span class="sub">2</span>x + b<span class="sub">2</span>y + c<span class="sub">2</span>z = d<span class="sub">2</span>
+                </p>
+
+                <p class="equation">a<span class="sub">3</span>x + b<span
+                        class="sub">3</span>y + c<span class="sub">3</span>z = d<span class="sub">3</span>
+                </p>
+
+
+
+            </article>
+        </section>
+
+    </main>
+
+    <footer></footer>
+</body>
+
+</html>

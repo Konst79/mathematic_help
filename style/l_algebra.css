@@ -1,0 +1,61 @@
+section.linear-algebra {
+    margin: 0 6px;
+    width: 620px;
+    background-color: #ffffe6;
+    font-size: 16px;
+    padding: 0 12px;
+}
+
+.table-example1 {
+    width: 100%;
+    margin: 24px 0;
+}
+
+section.linear-algebra table td,th {
+    padding: 0.5em;
+}
+
+#table-formula-1 {
+    margin: 10px auto;
+}
+
+#table-formula-1 tbody {
+    background-color: inherit;
+}
+
+#table-formula-1 td {
+    padding: 0 4px;
+}
+
+.equation {
+    text-align: center;
+    font-size: 1em;
+    font-style: italic;    
+    font-family: Georgia;
+}
+
+.sub, .sup {
+    color: blue;
+    font-size: 0.6em;
+    vertical-align: -0.4em;
+    font-style: normal;
+}
+
+.sup {
+    vertical-align: 0.5em;
+}
+
+.fraction {
+    display: inline-flex;
+    flex-direction: column;
+    vertical-align: middle;
+    /*padding: .5em;*/
+    align-items: center;
+  }
+  .numerator {
+    border-bottom: 2px solid grey;
+  }
+
+  .cell {
+    text-align: center;
+  }
